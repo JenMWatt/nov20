@@ -42,3 +42,12 @@
   color: #c48383;
   font-size: 40px;
 }
+
+.green {
+  color: rgb(159, 196, 131);
+  font-size: 40px;
+}
+.red {
+  color: #dd3838;
+  font-size: 40px;
+}

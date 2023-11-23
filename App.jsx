@@ -4,23 +4,29 @@ import "./App.css";
 function App() {
   const [counter, setCounter] = useState(0);
   const [running, setRunning] =useState(false);
+  const extraClass =running ? "green" : "red" ;
 
   useEffect(() => {
     console.log("useEffect starting");
-    let timer;
+    let interval;
     if (running) {
-      timer = setInterval(() => setCounter((x) => x + 1), 3000);
+      interval = setInterval(() => setCounter((x) => x + 1), 3000);
     }
 
     return () => {
-      clearInterval(timer);
+      if (interval) {
+        console.log ("interval:", interval);
+        clearInterval (interval);
+      }
     };
+  
+    
   }, [running]);
 
   return (
     <>
-      <div className="hi">{counter}</div>
-      <div className="button">
+      <div className={`hi ${extraClass}`}>{counter}</div>
+      <div className={`button ${extraClass}`}>
       <button onClick={() => setRunning(true)}> start </button>
       <p></p>
        <button onClick={() => setRunning(false)}> pause </button>
